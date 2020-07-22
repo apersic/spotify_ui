@@ -2,11 +2,12 @@ import React from 'react';
 import Categories from './Categories';
 import {Switch, Route} from 'react-router-dom';
 import PlaylistPage from '../pages/PlaylistPage';
+import Toolbar from './Toolbar'
 
 const Main = () => {
     return(
         <div className="Main">
-          <div className="Toolbar">dummy text</div>
+          <Toolbar />
           <div className="mainContent">
             <Switch>
               <Route path="/" exact component={Categories}></Route>

@@ -6,6 +6,12 @@ $greyNav: #090909;
 $greenPlay: #1db954;
 $greyItemHover: #2a3033;
 
+@media screen and (max-width: 1023px) {
+  #backButton {
+    display: none;
+  }
+}
+
 *{
   box-sizing: border-box;
 }
@@ -137,6 +143,57 @@ body{
   position: fixed;
   top: 0;
   z-index: 2;
+  .navButtons{
+    display: flex;
+    flex-direction: row;
+    .toolbarButton{
+      display: flex;
+      align-items: center;
+      margin-right: 16px;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: $greydark;
+      cursor: not-allowed;
+      svg{
+        width: 22px;
+        height: 22px;
+      }
+    }
+  }
+  .userButtons{
+    width: 256px;
+    height: 38px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: 210px;
+    .signupButton{
+      padding: 10px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 0.9rem;
+      border-radius: 30%;
+      letter-spacing: 2px;
+      &:hover{
+        font-size: 0.91rem;
+      }
+    }
+    .loginButton{
+      padding: 10px;
+      background: white;
+      font-size: 0.9rem;
+      border-radius: 30%;
+      letter-spacing: 2px;
+      &:hover{
+        font-size: 0.91rem;
+      }
+    }
+  }
 }
 
 .Main{
@@ -154,12 +211,18 @@ body{
 
 .cardsWrap{
   padding-bottom: 1.8rem;
-  .seeAll{
-    color: $greyText;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-    &:hover{
-      text-decoration: underline;
+  .categoryHeader{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .seeAll{
+      margin-left: auto;
+      color: $greyText;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+      &:hover{
+        text-decoration: underline;
+      }
     }
   }
   .cardsWrapInner{

@@ -34,8 +34,10 @@ const Categories = () => {
         <div>
             {dataCategories.map((category, id) => (
                 <div className="cardsWrap" key={id}>
-                    <h1>{category.name}</h1>
-                    <span className="seeAll">SEE ALL</span>
+                    <div className="categoryHeader">
+                        <h1>{category.name}</h1>
+                        <span className="seeAll">SEE ALL</span>
+                    </div>
                     <p className="subText">{category.description}</p>
                     <Playlist category_id={category.id} />
                 </div>

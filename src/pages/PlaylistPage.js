@@ -1,10 +1,37 @@
 import React from 'react'
 import {useParams} from 'react-router-dom'
-import heartIcon from '../images/icons8-heart-96.png'
-import dotsIcon from '../images/icons8-ellipsis-100.png'
+import PlaylistPageIcons from '../components/PlaylistPageIcons'
+import ListItem from '../components/ListItem'
 
 const PlaylistPage = () => {
     let {id} = useParams()
+
+    const dataSongs = [
+        {
+            name: 'Song 1',
+            author: 'Author 1',
+            album: 'Album 1',
+            duration: '3:56'
+        },
+        {
+            name: 'Song 2',
+            author: 'Author 2',
+            album: 'Album 5',
+            duration: '4:53'
+        },
+        {
+            name: 'Song 3',
+            author: 'Author 3',
+            album: 'Album 7',
+            duration: '5:27'
+        },
+        {
+            name: 'Song 4',
+            author: 'Author 1',
+            album: 'Album 2',
+            duration: '2:34'
+        },
+    ]
 
     return (
         <div className="playlistPage">
@@ -20,74 +47,11 @@ const PlaylistPage = () => {
                 </div>
             </div>
             <div className="playlistPageContent">
-                <div className="playlistPageIcons">
-                    <div className="playButton">
-                        <svg height="28" role="img" width="28" viewBox="0 0 24 24">
-                            <polygon points="21.57 12 5.98 3 5.98 21 21.57 12" fill="currentColor"></polygon>
-                        </svg>
-                    </div>
-                    <div className="iconsHeart">
-                        <img src={heartIcon} alt="heartPic"/>
-                    </div>
-                    <div className="iconsDots">
-                        <img src={dotsIcon} alt="dotsPic"/>
-                    </div>
-                </div>
+                <PlaylistPageIcons />
                 <div className="plalistSongsList">
-                    <div className="listItem">
-                        <div className="playButton">
-                            <svg height="28" role="img" width="28" viewBox="0 0 24 24">
-                                <polygon points="21.57 12 5.98 3 5.98 21 21.57 12" fill="currentColor"></polygon>
-                            </svg>
-                        </div>
-                        <div className="song">
-                            <div className="songName">Song 1</div>
-                            <div className="songInfo">
-                                <span className="author">Artist 1</span>
-                                <span className="separator">-</span>
-                                <span className="album">Album 1</span>
-                            </div>
-                        </div>
-                        <div className="duration">
-                            <span>3:55</span>
-                        </div>
-                    </div>
-                    <div className="listItem">
-                        <div className="playButton">
-                            <svg height="28" role="img" width="28" viewBox="0 0 24 24">
-                                <polygon points="21.57 12 5.98 3 5.98 21 21.57 12" fill="currentColor"></polygon>
-                            </svg>
-                        </div>
-                        <div className="song">
-                            <div className="songName">Song 1</div>
-                            <div className="songInfo">
-                                <span className="author">Artist 1</span>
-                                <span className="separator">-</span>
-                                <span className="album">Album 1</span>
-                            </div>
-                        </div>
-                        <div className="duration">
-                            <span>3:55</span>
-                        </div>
-                    </div>
-                    <div className="listItem">
-                        <div className="playButton">
-                            <svg height="28" role="img" width="28" viewBox="0 0 24 24">
-                                <polygon points="21.57 12 5.98 3 5.98 21 21.57 12" fill="currentColor"></polygon>
-                            </svg>
-                        </div>
-                        <div className="song">
-                            <div className="songName">Song 1</div>
-                            <div className="songInfo">
-                                <span className="author">Artist 1</span>
-                                <span className="separator">-</span>
-                                <span className="album">Album 1</span>
-                            </div>
-                        </div>
-                        <div className="duration">
-                            <span>3:55</span>
-                        </div>
-                    </div>
+                    {dataSongs.map((song, id) => (
+                        <ListItem id={id} name={song.name} author={song.author} album={song.album} duration={song.duration}/>
+                    ))}
                 </div>
             </div>
         </div>

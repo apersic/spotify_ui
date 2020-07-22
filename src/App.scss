@@ -4,6 +4,7 @@ $greylighter: #282828;
 $greyText: #636363;
 $greyNav: #090909;
 $greenPlay: #1db954;
+$greyItemHover: #2a3033;
 
 *{
   box-sizing: border-box;
@@ -46,6 +47,12 @@ body{
   ul{
     margin: 0;
     padding: 0;
+    a{
+      &:visited{
+        color: inherit;
+        text-decoration: none;
+      }
+    }
     li{
       color: $greyText;
       list-style-type: none;
@@ -157,6 +164,14 @@ body{
   }
   .cardsWrapInner{
     display: flex;
+    a{
+      color: inherit;
+      text-decoration: none;
+      &:visited{
+        color: inherit;
+        text-decoration: none;
+      }
+    }
   }
   .card{
     background: $greylighter;
@@ -213,5 +228,181 @@ body{
   bottom: 1.2rem;
   svg{
     margin: auto;
+  }
+}
+
+.playlistPage{
+  margin-top: 10px;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(0, 0, 0, 0.5)),
+    color-stop(40%, #121212)
+  );
+  background-image: linear-gradient(rgba(0, 0, 0, 1.5), #121212, 40%);
+  .playlistPageHeader{   
+    background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(0, 0, 0, 0.5)),
+    color-stop(40%, #121212)
+    );
+    background-image: linear-gradient(rgba(0, 0, 0, 1.5), #121212, 40%);
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 20px;
+    .playlistPageImage{
+      width: 232px;
+      height: 232px;
+      padding: 0;
+      img{
+        width: 232px;
+        height: 232px;
+        object-fit: cover;
+      }
+    }
+    .playlistPageHeaderInfo{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      margin-top: 50px;
+      margin-left: 20px;
+      text-align: left;
+      padding: 0;
+      height: 200px;
+      padding: 0;
+      .subTitle{
+        font-size: 0.9rem;
+        font-weight: bold;
+        letter-spacing: 0.1rem;
+        color: inherit;
+      }
+      p{
+        font-size: 0.9rem;
+        font-weight: bold;
+        letter-spacing: 0.1rem;
+        color: $greyText;
+      }
+      h1{
+        font-size: 5rem;
+        margin: 1px;
+        font-weight: bold;
+        letter-spacing: 0.1rem;
+      }
+      
+    }
+  }
+  .playlistPageContent{
+    margin-top: 20px;
+    .playlistPageIcons{
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      .playButton{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        width: 59px;
+        height: 59px;
+        background: $greenPlay;
+        border-style: none;
+        border-radius: 50%;
+      }
+      .iconsHeart{
+        margin-left: 10px;
+        border-radius: 50%;
+        width: 59px;
+        height: 59px;
+        align-content: center;
+        cursor: pointer;
+        img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          padding: 10px;
+        }
+      }
+      .iconsDots{
+        margin-left: 10px;
+        width: 59px;
+        height: 59px;
+        cursor: pointer;
+        border-radius: 50%;
+        align-content: center;
+        img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          padding: 10px;
+        }
+      }
+    }
+    .plalistSongsList{
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+      .listItem{
+        display: flex;
+        flex-direction: row;
+        padding: 15px;
+        width: 100%;
+        font-size: 0.9rem;
+        transition: all 0.1s ease-in-out;
+        &:hover{
+          background: $greyItemHover;
+        }
+        .playButton{
+          width: 14px;
+          height: 14px;
+          margin-right: 8px;
+          svg{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        .song{
+          .songName{
+            margin-bottom: 5px;
+            &:hover{
+              cursor: default;
+            }
+          }
+          .songInfo{
+            color: $greyText;
+            display: flex;
+            flex-direction: row;
+            .author{
+              margin-right: 5px;
+              cursor: pointer;
+              &:hover{
+                color: white;
+                text-decoration: underline;
+              }
+            }
+            .separator{
+              margin-right: 5px;
+              cursor: default;
+            }
+            .album{
+              cursor: pointer;
+              &:hover{
+                color: white;
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+        .duration{
+          margin-left: auto;
+          color: $greyText;
+          cursor: default;
+        }
+      }
+    }
   }
 }
